@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>HBNB</title>
+    <link rel="stylesheet" type="text/css" href="../static/styles/4-common.css?{{ cache_id }}" />
+    <link rel="stylesheet" type="text/css" href="../static/styles/3-header.css?{{ cache_id }}" />
+    <link rel="stylesheet" type="text/css" href="../static/styles/6-filters.css?{{ cache_id }}" />
+    <link rel="stylesheet" type="text/css" href="../static/styles/8-places.css?{{ cache_id }}" />
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="../static/scripts/3-hbnb.js?{{ cache_id }}"></script>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>HBNB - AirBnB clone</h1>
+        </div>
+        <div id="api_status" class=""></div>
+    </header>
+    <div class="filters">
+        <h3>Filters</h3>
+        <div class="amenities">
+            <h4>Amenities</h4>
+            <ul>
+                {% for amenity in amenities %}
+                <li>
+                    <input type="checkbox" data-id="{{ amenity.id }}" data-name="{{ amenity.name }}">
+                    {{ amenity.name }}
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    <div class="places">
+        <h1>Places</h1>
+        <div class="container">
+            <!-- Places will be populated by JavaScript -->
+        </div>
+    </div>
+</body>
+</html>
