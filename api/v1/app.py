@@ -11,14 +11,12 @@ from flasgger.utils import swag_from
 app = Flask(__name__)
 app.config['JSONIFY_PRETTYPRINT_REGULAR'] = True
 app.register_blueprint(app_views)
-cors = CORS(app, resources={r"/*": {"origins": "0.0.0.0"}})
-
+cors = CORS(app, resources={r"/api/v1/*": {"origins": "*"}})  # Updated line
 
 @app.teardown_appcontext
 def close_db(error):
     """ Close Storage """
     storage.close()
-
 
 @app.errorhandler(404)
 def not_found(error):
@@ -36,7 +34,6 @@ app.config['SWAGGER'] = {
 }
 
 Swagger(app)
-
 
 if __name__ == "__main__":
     """ Main Function """
